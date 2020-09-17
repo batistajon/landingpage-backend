@@ -17,7 +17,7 @@ class IndexController extends Action
 		$this->render('index');
 	}
 
-	public function clube()
+	public function calltoaction()
 	{
 		$lead = Container::getModel('Lead');
 

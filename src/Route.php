@@ -7,17 +7,18 @@ use Router\Init\Bootstrap;
 class Route extends Bootstrap 
 {
 	protected function initRoutes() 
-	{
+	{	
+		/** I */
 		$routes['home'] = [
 			'route'      => '/', 
 			'controller' => 'IndexController', 
 			'action'     => 'index'
 		];
 
-		$routes['clube'] = [
-			'route'      => '/clube', 
+		$routes['calltoaction'] = [
+			'route'      => '/calltoaction', 
 			'controller' => 'IndexController', 
-			'action'     => 'clube'
+			'action'     => 'calltoaction'
 		];
 
 		$routes['login'] = [
