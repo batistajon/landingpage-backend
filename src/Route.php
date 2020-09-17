@@ -8,7 +8,9 @@ class Route extends Bootstrap
 {
 	protected function initRoutes() 
 	{	
-		/** I */
+		/**
+		 * Index Controller
+		*/
 		$routes['home'] = [
 			'route'      => '/', 
 			'controller' => 'IndexController', 
@@ -21,18 +23,25 @@ class Route extends Bootstrap
 			'action'     => 'calltoaction'
 		];
 
-		$routes['login'] = [
-			'route'      => '/login', 
-			'controller' => 'AdminController', 
-			'action'     => 'login'
-		];
-
+		/**
+		 * Auth Controller
+		 */
 		$routes['autenticar'] = [
 			'route'      => '/autenticar', 
 			'controller' => 'AuthController', 
 			'action'     => 'autenticar'
 		];
 
+		/**
+		 * Admin Controller
+		 */
+		$routes['login'] = [
+			'route'      => '/login', 
+			'controller' => 'AdminController', 
+			'action'     => 'login'
+		];
+
+		
 		$routes['cadastro'] = [
 			'route'      => '/cadastro', 
 			'controller' => 'AdminController', 
