@@ -4,12 +4,12 @@ namespace Router\Model;
 
 require_once 'src/Config.php';
 
-class Connection {
-
+class Connection 
+{
 	public static function getDb()
 	{
 		try {
-			
+
 			$conn = new \PDO(
 				ROUTER_DB_CONFIG["driver"].":host=".ROUTER_DB_CONFIG["host"].";dbname=".ROUTER_DB_CONFIG["dbname"],
 				ROUTER_DB_CONFIG["username"],
