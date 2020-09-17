@@ -8,8 +8,8 @@ use Router\Model\Container;
 /**
  * IndexController
  */
-class IndexController extends Action {
-
+class IndexController extends Action 
+{
 	public function index()
 	{
 		$this->view->erroCadastro = false;

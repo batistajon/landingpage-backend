@@ -6,9 +6,10 @@ require_once 'src/Config.php';
 
 class Connection {
 
-	public static function getDb() {
+	public static function getDb()
+	{
 		try {
-
+			
 			$conn = new \PDO(
 				ROUTER_DB_CONFIG["driver"].":host=".ROUTER_DB_CONFIG["host"].";dbname=".ROUTER_DB_CONFIG["dbname"],
 				ROUTER_DB_CONFIG["username"],

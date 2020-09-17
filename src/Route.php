@@ -4,10 +4,10 @@ namespace Src;
 
 use Router\Init\Bootstrap;
 
-class Route extends Bootstrap {
-
-	protected function initRoutes() {
-
+class Route extends Bootstrap 
+{
+	protected function initRoutes() 
+	{
 		$routes['home'] = [
 			'route'      => '/', 
 			'controller' => 'IndexController', 
