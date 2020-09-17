@@ -2,15 +2,35 @@
 
 namespace Router\Controller;
 
+/**
+ * Action
+ */
 abstract class Action 
-{
+{    
+    /**
+     * view
+     *
+     * @var mixed
+     */
     protected $view;
-    
+        
+    /**
+     * __construct
+     *
+     * @return mixed
+     */
     public function __construct() 
     {
         $this->view = new \stdClass();
     }
-
+    
+    /**
+     * render
+     *
+     * @param  mixed $view
+     * @param  mixed $layout
+     * @return mixed
+     */
     protected function render($view, $layout = 'layout')
     {
         $this->view->page = $view;
@@ -22,7 +42,12 @@ abstract class Action
         
         $this->content();
     }
-
+    
+    /**
+     * content
+     *
+     * @return mixed
+     */
     protected function content()
     {
         $classAtual = get_class($this);

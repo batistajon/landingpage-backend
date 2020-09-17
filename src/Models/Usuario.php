@@ -5,17 +5,50 @@ namespace Src\Models;
 use Router\Model\Model;
 
 class Usuario extends Model
-{
-    private $id;
-    private $nome;
-    private $email;
+{    
+    /**
+     * id
+     *
+     * @var mixed
+     */
+    private $id;    
+    /**
+     * nome
+     *
+     * @var mixed
+     */
+    private $nome;    
+    /**
+     * email
+     *
+     * @var mixed
+     */
+    private $email;    
+    /**
+     * senha
+     *
+     * @var mixed
+     */
     private $senha;
-
+    
+    /**
+     * __get
+     *
+     * @param  mixed $var
+     * @return void
+     */
     public function __get($var)
     {
         return $this->$var;
     }
-
+    
+    /**
+     * __set
+     *
+     * @param  mixed $var
+     * @param  mixed $value
+     * @return void
+     */
     public function __set($var, $value)
     {
         $this->$var = $value;
@@ -23,6 +56,11 @@ class Usuario extends Model
 
     /**
      * Salva o usuario no banco de dados
+     */    
+    /**
+     * salvar
+     *
+     * @return void
      */
     public function salvar()
     {
@@ -38,7 +76,12 @@ class Usuario extends Model
     
      /**
       * valida se um cadastro pode ser feito
-      */
+      */    
+    /**
+     * validarCadastro
+     *
+     * @return void
+     */
     public function validarCadastro()
     {
         $valido = true;
@@ -60,6 +103,11 @@ class Usuario extends Model
 
       /**
        * Recuperar usuario por email
+       */      
+      /**
+       * getUsuarioPorEmail
+       *
+       * @return void
        */
       public function getUsuarioPorEmail()
       {
@@ -70,7 +118,12 @@ class Usuario extends Model
 
           return $stmt->fetchAll(\PDO::FETCH_ASSOC);
       }
-
+      
+      /**
+       * auth
+       *
+       * @return void
+       */
       public function auth()
       {
           $query = "SELECT id, nome, email FROM usuarios WHERE email = :email AND senha = :senha";
@@ -88,7 +141,12 @@ class Usuario extends Model
 
           return $this;
       }
-
+      
+      /**
+       * getAll
+       *
+       * @return void
+       */
       public function getAll()
       {
           $query = "SELECT u.id, u.nome, u.email, (SELECT count(*) FROM usuarios_beneficios AS ub WHERE ub.id_usuario = :id_usuario AND ub.id_usuario_beneficio = u.id) AS fav_sn FROM usuarios AS u WHERE u.nome LIKE :nome AND u.id != :id_usuario";
@@ -100,7 +158,13 @@ class Usuario extends Model
           return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
       }
-
+      
+      /**
+       * favBeneficio
+       *
+       * @param  mixed $id_usuario_beneficio
+       * @return void
+       */
       public function favBeneficio($id_usuario_beneficio)
       {
         $query = "INSERT INTO usuarios_beneficios(id_usuario, id_usuario_beneficio)VALUES(:id_usuario, :id_usuario_beneficio)";
@@ -112,7 +176,13 @@ class Usuario extends Model
         return true;
 
       }
-
+      
+      /**
+       * noFavBeneficio
+       *
+       * @param  mixed $id_usuario_beneficio
+       * @return void
+       */
       public function noFavBeneficio($id_usuario_beneficio)
       {
         $query = "DELETE FROM usuarios_beneficios WHERE id_usuario = :id_usuario AND id_usuario_beneficio = :id_usuario_beneficio";

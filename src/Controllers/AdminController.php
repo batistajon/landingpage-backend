@@ -9,25 +9,37 @@ use Router\Model\Container;
  * AdminController - Controla os recursos privados da aplicacao
  */
 class AdminController extends Action
-{
+{    
+    /**
+     * login
+     *
+     * @return 
+     */
     public function login()
     {
         $this->view->login = isset($_GET['login']) ? $_GET['login'] : '';
         $this->render('login');
     }
-
+    
+    /**
+     * cadastro
+     *
+     * @return void
+     */
     public function cadastro()
 	{
 		$this->view->erroCadastro = false;
 
 		$this->render('cadastro');
     }
-    
+        
+    /**
+     * registrar
+     *
+     * @return mixed
+     */
     public function registrar()
 	{
-		/**
-		 * Recebe os dados do formulario via post
-		 */
 		$usuario = Container::getModel('Usuario');
 
 		$usuario->__set('nome', $_POST['nome']);
@@ -51,7 +63,12 @@ class AdminController extends Action
 			$this->render('cadastro');
         }
     }    
-
+    
+    /**
+     * admin
+     *
+     * @return array
+     */
     public function admin()
     {
         $this->validaAutenticacao();
@@ -65,7 +82,12 @@ class AdminController extends Action
 
         $this->render('admin');
     }
-
+    
+    /**
+     * atualizaLead
+     *
+     * @return void
+     */
     public function atualizaLead()
     {    
        $this->validaAutenticacao();
@@ -79,7 +101,12 @@ class AdminController extends Action
 
        header('Location: /admin?atualizado');
     }
-
+    
+    /**
+     * deleteLead
+     *
+     * @return void
+     */
     public function deleteLead()
     {
        $this->validaAutenticacao();
@@ -92,7 +119,12 @@ class AdminController extends Action
 
        header('Location: /admin');
     }
-
+    
+    /**
+     * validaAutenticacao
+     *
+     * @return void
+     */
     public function validaAutenticacao()
     {
         session_start();

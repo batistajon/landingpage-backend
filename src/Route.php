@@ -4,8 +4,16 @@ namespace Src;
 
 use Router\Init\Bootstrap;
 
+/**
+ * Route
+ */
 class Route extends Bootstrap 
-{
+{	
+	/**
+	 * initRoutes
+	 *
+	 * @return void
+	 */
 	protected function initRoutes() 
 	{	
 		/**

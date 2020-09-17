@@ -9,14 +9,24 @@ use Router\Model\Container;
  * IndexController
  */
 class IndexController extends Action 
-{
+{	
+	/**
+	 * index
+	 *
+	 * @return void
+	 */
 	public function index()
 	{
 		$this->view->erroCadastro = false;
 		$this->view->login = isset($_GET['login']) ? $_GET['login'] : '';
 		$this->render('index');
 	}
-
+	
+	/**
+	 * calltoaction
+	 *
+	 * @return void
+	 */
 	public function calltoaction()
 	{
 		$lead = Container::getModel('Lead');

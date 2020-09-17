@@ -5,7 +5,12 @@ namespace Router\Model;
 require_once 'src/Config.php';
 
 class Connection 
-{
+{	
+	/**
+	 * getDb
+	 *
+	 * @return void
+	 */
 	public static function getDb()
 	{
 		try {

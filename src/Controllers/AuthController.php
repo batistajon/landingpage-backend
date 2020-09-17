@@ -9,7 +9,12 @@ use Router\Model\Container;
  * AuthController - Controla as autenticacoes dos usuarios
  */
 class AuthController extends Action
-{
+{    
+    /**
+     * autenticar
+     *
+     * @return void
+     */
     public function autenticar()
     {
         $usuario = Container::getModel('Usuario');
@@ -32,7 +37,12 @@ class AuthController extends Action
             header('Location: /?login=erro');
         }
     }
-
+    
+    /**
+     * sair
+     *
+     * @return void
+     */
     public function sair()
     {
         session_start();
