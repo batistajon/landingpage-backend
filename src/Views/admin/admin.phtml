@@ -1,0 +1,31 @@
+<?php foreach ($this->view->leads as $key => $lead) { ?>
+    <p>
+        <strong><?=$lead['nome']?></strong><br>
+        <span><?=$lead['email']?></span><br>
+        <span><?=$lead['telefone']?></span><br>
+    </p>
+    <?php if($this->view->acao == $lead['id']) { ?>
+        <form method="post" action="/atualiza_lead">
+            <input class="id-lead" type="hidden" name="id-lead" value="<?=$lead['id']?>"><br>
+            <input class="name-lead" type="text" name="name-lead" value="<?=$lead['nome']?>"><br>
+            <input class="email-lead" type="email" name="email-lead" value="<?=$lead['email']?>"><br>
+            <input class="tel-lead" type="tel" name="tel-lead" value="<?=$lead['telefone']?>">
+            <script>$(".tel-lead").mask("(99) 99999-9999");</script>
+            <div>
+                <button type="submit">Atualizar</button>
+            </div>
+        </form>
+    <?php } ?>
+    <form method="get" action="">
+        <div>
+            <button type="submit"><small><a href="/admin?atualiza=<?=$lead['id']?>">Atualizar</a></small></button>
+        </div>
+    </form>
+    <form method="get" action="/delete_lead">
+        <div>
+            <button type="submit"><small><a href="/delete_lead?delete=<?=$lead['id']?>">Remover</a></small></button>
+        </div>
+    </form>
+<?php } ?>    
+    <br>
+<a href="/sair">Sair</a>

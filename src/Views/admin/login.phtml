@@ -1,0 +1,24 @@
+<section>
+    <div class="content-banner">
+        <div class="banner-text">
+            <h1>Login</h1>
+            <form action="/autenticar" method="POST" >
+                <input type="email" name="email" id="email" class="log" placeholder="Digite seu e-mail">
+                <input type="password" name="senha" class="log" id="senha" placeholder="Digite sua senha">
+                <div class="button">
+                <input type="submit" id="button" value="Login">
+                </div>
+
+                <?php if($this->view->login == 'erro') {?>
+                    <span class="text text-danger">*E-mail e/ou senha invalidos.</span>
+                <?php } ?>
+
+            </form>
+            <form action="/cadastro" method="POST">
+                <div>
+                    <input type="submit" id="button" value="Cadastrar">
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

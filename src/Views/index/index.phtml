@@ -1,0 +1,12 @@
+<form method="post" action="/clube">
+    <input class="name-lead" type="text" name="name-lead" placeholder="Digite seu nome"><br>
+    <input class="email-lead" type="email" name="email-lead" placeholder="Digite seu e-mail"><br>
+    <input class="tel-lead" type="tel" name="tel-lead" placeholder="Digite seu whatsapp">
+    <script>$(".tel-lead").mask("(99) 99999-9999");</script>
+    <div>
+        <button type="submit">call to action</button>
+    </div>
+    <?php if($this->view->erroCadastro) { ?>
+      <small>*Erro ao tentar fazer login. Verifique se os campos estao corretos.</small>
+    <?php } ?> 
+</form>
